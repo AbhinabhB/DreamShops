@@ -21,11 +21,11 @@ const PORT = process.env.PORT || 5000;
 
 // const __dirname = path.resolve();
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-  })
-);
+app.use(cors({
+  origin: allowedOrigin, // Must be exact domain
+  credentials: true,     // Allow credentials (cookies, auth headers)
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+}));
 
 app.use(express.json({ limit: "10mb" })); // allows you to parse the body of the request
 app.use(cookieParser());
