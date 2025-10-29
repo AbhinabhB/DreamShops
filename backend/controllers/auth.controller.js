@@ -17,13 +17,13 @@ const setCookies = (res, accessToken, refreshToken) => {
     res.cookie("accessToken", accessToken, {
         httpOnly: true, // prevent XSS attacks, i.e, (cross site scripting) attacks
         secure: process.env.NODE_ENV === "production", // Only true for production, i.e, https. For development false as localhost is http.
-        sameSite: "lax", // prevents CSRF attacks, i.e, (cross site forgery) attacks
+        sameSite: "none", // prevents CSRF attacks, i.e, (cross site forgery) attacks
         maxAge: 15 * 60 * 1000,
     }),
     res.cookie("refreshToken", refreshToken, {
         httpOnly: true, // prevent XSS attacks, i.e, (cross site scripting) attacks
         secure: process.env.NODE_ENV === "production", // Only true for production, i.e, https. For development false as localhost is http.
-        sameSite: "lax", // prevents CSRF attacks, i.e, (cross site forgery) attacks
+        sameSite: "none", // prevents CSRF attacks, i.e, (cross site forgery) attacks
         maxAge: 7 * 24 * 60 * 60,
     })
 }
