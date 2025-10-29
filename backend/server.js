@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 // const __dirname = path.resolve();
 
 app.use(cors({
-  origin: allowedOrigin, // Must be exact domain
+  origin: process.env.CLIENT_URL, // Must be exact domain
   credentials: true,     // Allow credentials (cookies, auth headers)
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
 }));
